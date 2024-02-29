@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # 仅在推送到默认分支时运行。
   push:
-    branches: ['main']
+    branches: ['master']
 
   # 这个选项可以使你手动在 Action tab 页面触发工作流
   workflow_dispatch:      
@@ -48,6 +48,6 @@ jobs:
           path: './dist'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      uses: actions/deploy-pages@v1
+    env:
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
