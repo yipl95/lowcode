@@ -1,5 +1,7 @@
-// src/editor/layouts/index.tsx
+import { Allotment } from "allotment";
+import "allotment/dist/style.css";
 import React from 'react';
+
 import Header from './header';
 import Material from './material';
 import Setting from './setting';
@@ -11,17 +13,17 @@ const Layout: React.FC = () => {
       <div className='h-[50px] flex items-center bg-red-300'>
         <Header />
       </div>
-      <div className='flex-1 flex'>
-        <div className='w-[200px] bg-green-400'>
+      <Allotment>
+        <Allotment.Pane preferredSize={200} maxSize={400} minSize={200}>
           <Material />
-        </div>
-        <div className='flex-1 bg-blue-400'>
+        </Allotment.Pane>
+        <Allotment.Pane>
           <Render />
-        </div>
-        <div className='w-[200px] bg-orange-400'>
+        </Allotment.Pane>
+        <Allotment.Pane preferredSize={300} maxSize={500} minSize={300}>
           <Setting />
-        </div>
-      </div>
+        </Allotment.Pane>
+      </Allotment>
     </div>
   )
 }
